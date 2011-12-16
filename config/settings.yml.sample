@@ -1,5 +1,0 @@
-common:
-  tokbox:
-    api_key: 123455                # should be a number
-    api_secret: verysecrettext
-    location: localhost     # give Opentok a hint on where you are running your application
