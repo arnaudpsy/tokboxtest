@@ -38,3 +38,6 @@ gem 'opentok'
 
 gem 'haml'
 gem 'haml-rails'
+
+# for Heroku
+gem 'pg'
