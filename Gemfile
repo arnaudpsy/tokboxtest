@@ -34,3 +34,7 @@ gem 'jquery-rails'
 # Tokbox specific gem
 
 gem 'opentok'
+
+
+gem 'haml'
+gem 'haml-rails'

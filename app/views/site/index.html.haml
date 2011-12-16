@@ -1,0 +1,13 @@
+%h3 Api key
+#apikey= @apikey
+%h3 Session
+#session= @session
+%h3 Token
+#token= @token
+
+#camdiv
+
+%p
+  To Chat with someone send him the following link:
+  %br
+  =link_to root_url+"?session=#{@session}", root_url+"?session=#{@session}"
