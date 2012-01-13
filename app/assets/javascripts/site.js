@@ -14,7 +14,7 @@ $(function() {
  
     function sessionConnectedHandler(event) {
       publisher = session.publish('camdiv');
-       
+			$('#camdiv').hide();
       // Subscribe to streams that were in the session when we connected
       subscribeToStreams(event.streams);
     }
