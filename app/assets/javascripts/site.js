@@ -36,8 +36,12 @@ $(function() {
         div.setAttribute('id', 'stream' + streams[i].streamId);
         document.body.appendChild(div);
                            
+				suboptions =  {
+					width: 576,
+					height: 420
+				}
         // Subscribe to the stream
-        session.subscribe(streams[i], div.id);
+        session.subscribe(streams[i], div.id,suboptions);
       }
     }
 })
