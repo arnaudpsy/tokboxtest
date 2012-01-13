@@ -37,8 +37,8 @@ $(function() {
         document.body.appendChild(div);
                            
 				suboptions =  {
-					width: 57,
-					height: 42
+					width: 576,
+					height: 420
 				}
         // Subscribe to the stream
         session.subscribe(streams[i], div.id,suboptions);
