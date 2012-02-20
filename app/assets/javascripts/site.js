@@ -11,7 +11,7 @@ $(function() {
     session.connect(apiKey, token);
  
     var publisher;
- 		var suboptions =  {
+ 		var subOptions =  {
 			width: 576,
 			height: 420
 		}
@@ -40,7 +40,7 @@ $(function() {
         document.body.appendChild(div);
                            
         // Subscribe to the stream
-        session.subscribe(streams[i], div.id, suboptions);
+        session.subscribe(streams[i], div.id, subOptions);
       }
     }
 })
