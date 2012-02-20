@@ -15,7 +15,7 @@ $(function() {
 			width: 576,
 			height: 420
 		}
-		function sessionConnectHandler(event) {
+		function sessionConnectedHandler(event) {
 		    var div = document.createElement('div');
 		    div.setAttribute('id', 'publisher');
 
