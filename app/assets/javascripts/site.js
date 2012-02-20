@@ -23,8 +23,7 @@ $(function() {
 		    	// This example assumes that a publisherContainer div exists
 		    publisherContainer.appendChild(div);
 
-		    var divProps = {width: 400, height:300, name:"Bob's stream"};
-		    publisher = session.publish('publisher', divProps);
+		    publisher = session.publish('publisher', subOptions);
 		}
      
     function streamCreatedHandler(event) {
