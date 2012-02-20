@@ -15,12 +15,17 @@ $(function() {
 			width: 576,
 			height: 420
 		}
-    function sessionConnectedHandler(event) {
-      publisher = session.publish('camdiv', subOptions);
-			$('#camdiv').hide();
-      // Subscribe to streams that were in the session when we connected
-      subscribeToStreams(event.streams);
-    }
+		function sessionConnectHandler(event) {
+		    var div = document.createElement('div');
+		    div.setAttribute('id', 'publisher');
+
+		    var publisherContainer = document.getElementById('publisherContainer');  
+		    	// This example assumes that a publisherContainer div exists
+		    publisherContainer.appendChild(div);
+
+		    var divProps = {width: 400, height:300, name:"Bob's stream"};
+		    publisher = session.publish('publisher', divProps);
+		}
      
     function streamCreatedHandler(event) {
       // Subscribe to any new streams that are created
