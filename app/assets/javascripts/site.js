@@ -11,9 +11,12 @@ $(function() {
     session.connect(apiKey, token);
  
     var publisher;
- 
+ 		var suboptions =  {
+			width: 576,
+			height: 420
+		}
     function sessionConnectedHandler(event) {
-      publisher = session.publish('camdiv');
+      publisher = session.publish('camdiv', subOptions);
 			$('#camdiv').hide();
       // Subscribe to streams that were in the session when we connected
       subscribeToStreams(event.streams);
@@ -36,10 +39,6 @@ $(function() {
         div.setAttribute('id', 'stream' + streams[i].streamId);
         document.body.appendChild(div);
                            
-				var suboptions =  {
-					width: 576,
-					height: 420
-				}
         // Subscribe to the stream
         session.subscribe(streams[i], div.id, suboptions);
       }
