@@ -31,6 +31,8 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 
+gem 'twitter-bootstrap-rails'
+
 # Tokbox specific gem
 
 gem 'opentok'

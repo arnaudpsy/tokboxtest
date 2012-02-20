@@ -41,7 +41,7 @@ $(function() {
         // Create the div to put the subscriber element in to
         var div = document.createElement('div');
         div.setAttribute('id', 'stream' + streams[i].streamId);
-        document.body.appendChild(div);
+        document.body.getElementById('subscribersContainer').appendChild(div);
                            
         // Subscribe to the stream
         session.subscribe(streams[i], div.id, subOptions);
