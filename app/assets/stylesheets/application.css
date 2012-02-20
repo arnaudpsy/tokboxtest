@@ -6,3 +6,7 @@
  *= require twitter/bootstrap
  *= require_tree . 
 */
+
+.container-fluid .row-fluid {
+	overflow: hidden;
+}
