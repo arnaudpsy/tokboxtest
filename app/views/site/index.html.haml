@@ -5,10 +5,16 @@
 %h3 Token
 #token= @token
 
-.span6#publisherContainer
-.span6#subscribersContainer
-  
-%p
-  To Chat with someone send him the following link:
-  %br
-  =link_to root_url+"?session_id=#{@session}", root_url+"?session=#{@session}"
+.row-fluid
+  .span6#publisherContainer
+  .span6#subscribersContainer
+
+  .span6
+    %h2 Moi
+  .span6
+    %h2 Pas moi
+  .span12
+    %p
+      Pour vchatter avec un correspondant faites lui passer le lien suivant:
+      %br
+      =link_to root_url+"?session_id=#{@session}", root_url+"?session=#{@session}"
