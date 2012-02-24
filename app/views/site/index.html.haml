@@ -5,19 +5,13 @@
 %h3 Token
 #token= @token
 
-.row-fluid
-  .span6#publisherContainer
+.row
+  .span2.offset1#publisherContainer
+    Contenu publisher
   .span6#subscribersContainer
-
-.row-fluid
-  .span6
-    %h2 Moi
-  .span6
-    %h2 Pas moi
-    
-.row-fluid    
-  .span12
-    %p
-      Pour vchatter avec un correspondant faites lui passer le lien suivant:
-      %br
-      =link_to root_url+"?session_id=#{@session}", root_url+"?session=#{@session}"
+    Attente du correspondant....
+  .span3
+    .well
+      %p
+        Pour vchatter avec un correspondant faites lui passer le lien suivant:
+      =link_to "Rejoindre la conversation", root_url+"?session=#{@session}", :class => "btn btn-success btn-large"

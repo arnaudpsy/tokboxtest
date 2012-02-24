@@ -4,6 +4,7 @@ class SiteController < ApplicationController
     @session = params[:session_id]
     
     opentok = OpenTok::OpenTokSDK.new(ENV['opentok_api_key'], ENV['opentok_api_secret'])
+    
     @token = opentok.generate_token :session_id => @session
     @apikey = ENV['opentok_api_key']
   end  

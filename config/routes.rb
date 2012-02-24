@@ -3,6 +3,7 @@ Tokboxtest::Application.routes.draw do
   # first created -> highest priority.
 
   root :to => 'site#index'
+  get 'test' => 'site#test'
   
   resources :toksession, :only => :new
   # Sample of regular route:

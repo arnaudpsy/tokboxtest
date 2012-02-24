@@ -12,18 +12,24 @@ $(function() {
  
     var publisher;
  		var subOptions =  {
-			width: 576,
-			height: 420
+			width: 570,
+			height: 418
 		}
+ 		var pubOptions =  {
+			width: 170,
+			height: 140
+		}
+
 		function sessionConnectedHandler(event) {
 		    var div = document.createElement('div');
 		    div.setAttribute('id', 'publisher');
 
 		    var publisherContainer = document.getElementById('publisherContainer');  
 		    	// This example assumes that a publisherContainer div exists
+				publisherContainer.innerHTML='';
 		    publisherContainer.appendChild(div);
 
-		    publisher = session.publish('publisher', subOptions);
+		    publisher = session.publish('publisher', pubOptions);
 		}
      
     function streamCreatedHandler(event) {
@@ -41,6 +47,8 @@ $(function() {
         // Create the div to put the subscriber element in to
         var div = document.createElement('div');
         div.setAttribute('id', 'stream' + streams[i].streamId);
+				var subscriberContainer = document.body.getElementById('subscribersContainer');
+				subscriberContainer.innerHTML='';
         document.body.getElementById('subscribersContainer').appendChild(div);
                            
         // Subscribe to the stream
