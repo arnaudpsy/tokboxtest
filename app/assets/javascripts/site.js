@@ -16,8 +16,8 @@ $(function() {
 			height: 418
 		}
  		var pubOptions =  {
-			width: 170,
-			height: 140
+			width: 270,
+			height: 200
 		}
 
 		function sessionConnectedHandler(event) {
