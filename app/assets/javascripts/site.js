@@ -37,6 +37,8 @@ $(function() {
     }
      
     function subscribeToStream(streams) {
+			var subscriberContainer = document.getElementById('subscribersContainer');
+			subscriberContainer.innerHTML='';
       for (var i = 0; i < streams.length; i++) {
         // Make sure we don't subscribe to ourself
         if (streams[i].connection.connectionId == session.connection.connectionId) {
