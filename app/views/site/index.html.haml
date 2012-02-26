@@ -5,11 +5,15 @@
 %h3 Token
 #token= @token
 
-.row
+.row#waiting
+  .span6.offset3
+    %h1 Chargement de l'interface veuillez patienter
+.row#interface
   .span3#publisherContainer
     Contenu publisher
-  .span6#subscribersContainer
-    Attente du correspondant....
+  .span6
+    #subscribersContainer
+      \...
   .span3
     .well
       %p

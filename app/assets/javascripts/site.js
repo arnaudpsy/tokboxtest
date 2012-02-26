@@ -2,7 +2,6 @@ $(function() {
 	var apiKey = $('#apikey').text();
   var sessionId = $('#session').text();
   var token = $('#token').text();
-     
     TB.setLogLevel(TB.DEBUG);     
  
     var session = TB.initSession(sessionId);      
@@ -34,25 +33,28 @@ $(function() {
      
     function streamCreatedHandler(event) {
       // Subscribe to any new streams that are created
-      subscribeToStreams(event.streams);
+      subscribeToStream(event.streams);
     }
      
-    function subscribeToStreams(streams) {
+    function subscribeToStream(streams) {
       for (var i = 0; i < streams.length; i++) {
         // Make sure we don't subscribe to ourself
         if (streams[i].connection.connectionId == session.connection.connectionId) {
-          return;
+          continue;
         }
  
         // Create the div to put the subscriber element in to
         var div = document.createElement('div');
         div.setAttribute('id', 'stream' + streams[i].streamId);
-				var subscriberContainer = document.body.getElementById('subscribersContainer');
-				subscriberContainer.innerHTML='';
-        document.body.getElementById('subscribersContainer').appendChild(div);
+				var subscriberContainer = document.getElementById('subscribersContainer');
+
+        subscriberContainer.appendChild(div);
                            
         // Subscribe to the stream
         session.subscribe(streams[i], div.id, subOptions);
       }
+			$('#waiting').hide();
+			$('#interface').css('visibility','visible');
+			return false;
     }
 })
