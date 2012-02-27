@@ -41,19 +41,17 @@ $(function() {
 			subscriberContainer.innerHTML='';
       for (var i = 0; i < streams.length; i++) {
         // Make sure we don't subscribe to ourself
-        if (streams[i].connection.connectionId == session.connection.connectionId) {
-          return;
-        }
- 
-        // Create the div to put the subscriber element in to
-        var div = document.createElement('div');
-        div.setAttribute('id', 'stream' + streams[i].streamId);
-				var subscriberContainer = document.getElementById('subscribersContainer');
+        if (streams[i].connection.connectionId != session.connection.connectionId) {
+	        // Create the div to put the subscriber element in to
+	        var div = document.createElement('div');
+	        div.setAttribute('id', 'stream' + streams[i].streamId);
+					var subscriberContainer = document.getElementById('subscribersContainer');
 
-        subscriberContainer.appendChild(div);
-                           
-        // Subscribe to the stream
-        session.subscribe(streams[i], div.id, subOptions);
+	        subscriberContainer.appendChild(div);
+
+	        // Subscribe to the stream
+	        session.subscribe(streams[i], div.id, subOptions);
+        }
       }
 			$('#waiting').hide();
 			$('#interface').css('visibility','visible');
