@@ -57,6 +57,5 @@ $(function() {
       }
 			$('#waiting').hide();
 			$('#interface').css('visibility','visible');
-			return false;
     }
 })
