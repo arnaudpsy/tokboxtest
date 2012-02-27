@@ -6,7 +6,7 @@ $(function() {
  
     var session = TB.initSession(sessionId);      
     session.addEventListener('sessionConnected', sessionConnectedHandler);
-    session.addEventListener('streamCreated', streamCreatedHandler);      
+/*    session.addEventListener('streamCreated', streamCreatedHandler);      */
     session.connect(apiKey, token);
  
     var publisher;
@@ -29,15 +29,16 @@ $(function() {
 		    publisherContainer.appendChild(div);
 
 		    publisher = session.publish('publisher', pubOptions);
+      	subscribeToStreams(event.streams);
 		}
      
-    function streamCreatedHandler(event) {
+/*    function streamCreatedHandler(event) {
       // Subscribe to any new streams that are created
 			console.log('stream length: '+event.streams.length);
-      subscribeToStream(event.streams);
-    }
+      subscribeToStreams(event.streams);
+    }*/
      
-    function subscribeToStream(streams) {
+    function subscribeToStreams(streams) {
 			$('#initialcontent').remove();
 			var subscriberContainer = $('#subscribersContainer');
 			
