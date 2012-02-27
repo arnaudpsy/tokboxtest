@@ -6,7 +6,7 @@ $(function() {
  
     var session = TB.initSession(sessionId);      
     session.addEventListener('sessionConnected', sessionConnectedHandler);
-/*    session.addEventListener('streamCreated', streamCreatedHandler);      */
+    session.addEventListener('streamCreated', streamCreatedHandler);      
     session.connect(apiKey, token);
  
     var publisher;
@@ -29,35 +29,39 @@ $(function() {
 		    publisherContainer.appendChild(div);
 
 		    publisher = session.publish('publisher', pubOptions);
+				$('#messagecontent').show();
       	subscribeToStreams(event.streams);
+
+
 		}
      
-/*    function streamCreatedHandler(event) {
+    function streamCreatedHandler(event) {
       // Subscribe to any new streams that are created
-			console.log('stream length: '+event.streams.length);
       subscribeToStreams(event.streams);
-    }*/
+    }
      
     function subscribeToStreams(streams) {
-			$('#initialcontent').remove();
+
 			var subscriberContainer = $('#subscribersContainer');
 			
       for (var i = 0; i < streams.length; i++) {
-				var stream = streams[i];
-        // Make sure we don't subscribe to ourself
-        if (stream.connection.connectionId != session.connection.connectionId) {
-	        // Create the div to put the subscriber element in to
-	        var div = document.createElement('div');
-	        div.setAttribute('id', 'stream' + streams[i].streamId);
-					var subscriberContainer = document.getElementById('subscribersContainer');
-
-	        subscriberContainer.appendChild(div);
-
-	        // Subscribe to the stream
-	        session.subscribe(stream, div.id, subOptions);
-        }
-      }
-/*			$('#waiting').hide();
-			$('#interface').css('visibility','visible');*/
+				addStream(streams[i]);
+			}
+			$('#initialcontent').remove();
+    }
+		function addStream(stream) {
+       // Make sure we don't subscribe to ourself
+      if (stream.connection.connectionId == session.connection.connectionId) return;
+			var id = 'stream' + stream.streamId;
+			if($('#'+id).length > 0) return;
+      // Create the div to put the subscriber element in to
+      var div = document.createElement('div');
+      div.setAttribute('id', id);
+			var subscriberContainer = document.getElementById('subscribersContainer');
+      
+      subscriberContainer.appendChild(div);
+      
+      // Subscribe to the stream
+      session.subscribe(stream, div.id, subOptions);
     }
 })
