@@ -52,10 +52,10 @@ $(function() {
 	        subscriberContainer.appendChild(div);
 
 	        // Subscribe to the stream
-	        session.subscribe(streams[i], div.id, subOptions);
+	        session.subscribe(stream, div.id, subOptions);
         }
       }
-			$('#waiting').hide();
-			$('#interface').css('visibility','visible');
+/*			$('#waiting').hide();
+			$('#interface').css('visibility','visible');*/
     }
 })
