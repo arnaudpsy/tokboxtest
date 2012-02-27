@@ -33,6 +33,7 @@ $(function() {
      
     function streamCreatedHandler(event) {
       // Subscribe to any new streams that are created
+			console.log('stream length: '+event.streams.length);
       subscribeToStream(event.streams);
     }
      
