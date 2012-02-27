@@ -37,11 +37,13 @@ $(function() {
     }
      
     function subscribeToStream(streams) {
-			var subscriberContainer = document.getElementById('subscribersContainer');
-			subscriberContainer.innerHTML='';
+			$('#initialcontent').remove();
+			var subscriberContainer = $('#subscribersContainer');
+			
       for (var i = 0; i < streams.length; i++) {
+				var stream = streams[i];
         // Make sure we don't subscribe to ourself
-        if (streams[i].connection.connectionId != session.connection.connectionId) {
+        if (stream.connection.connectionId != session.connection.connectionId) {
 	        // Create the div to put the subscriber element in to
 	        var div = document.createElement('div');
 	        div.setAttribute('id', 'stream' + streams[i].streamId);
